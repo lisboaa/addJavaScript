@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>JS Bin</title>
+</head>
+
+<body>
+    <form action="" id="formulario">
+        <input type="text" name="produto" id="nome">
+        <input type="number" name="preco" id="preco">
+
+        <button id="botao" onclick="adicionar(event)">Adicionar</button>
+    </form>
+
+    <table id="tabela">
+        <th>Produto</th>
+        <th>Preço</th>
+        <tr id="myTr">
+        </tr>
+    </table>
+    <script>
+        function adicionar(add) {
+            var campo = document.getElementById("nome").value;
+            var preco = document.getElementById("preco").value;
+            var mytr = document.createElement("tr")
+            var tabela = document.getElementById("tabela")
+
+            var anTd = document.createElement("td");
+            anTd.textContent = campo;
+            mytr.appendChild(anTd);
+
+            var toTd = document.createElement("td");
+            toTd.textContent = preco;
+            mytr.appendChild(toTd);
+
+            tabela.appendChild(mytr)
+
+            document.getElementById("nome").value = "";
+            document.getElementById("preco").value = "";
+
+            add.preventDefault();
+        }
+    </script>
+</body>
+
+</html>
